@@ -3,14 +3,12 @@ const express = require('express');
 const hbs = require('hbs');
 
 
-//Still dont know exactly what this does
 const path = require('path');
 const PunkAPIWrapper = require('punkapi-javascript-wrapper');
 
 
 const app = express();
 
-//Still dont know exactly what this does
 const punkAPI = new PunkAPIWrapper();
 
 //package hbs schould be render
@@ -69,7 +67,7 @@ app.get('/beers/:foo', (request, response) => {
 
 
 
-
+//working on this now
 app.get('/', (req, res) => {
   res.render('index');
 });

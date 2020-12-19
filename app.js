@@ -60,10 +60,16 @@ app.get('/:foo', (request, response) => {
   }
 });
 
-app.get('/beers/:foo', (request, response) => {
-  const id = request.params.foo;
-  const query = request.query;
-
+app.get('/beers/:beerId', (req, res) => {
+  const beerId = req.params.beerId;
+  punkAPI
+    .getBeers()
+    .then(beersFromApi => {
+      console.log('Beers from the database: ', beersFromApi);
+      res.render('random-beer', beersFromApi[beerId - 1]);
+    })
+    .catch(error => console.log(error));
+});
 
 
 
